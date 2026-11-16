@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="create_flightworks"
+version="0.1.0"
+displayName="Create: Flightworks"
+authors="DragonPixel"
+description='''
+An aircraft engineering addon for Create and compatible physics-based sublevel systems.
+'''
+
+[[dependencies.create_flightworks]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.219,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.create_flightworks]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.22)"
+ordering="NONE"
+side="BOTH"
