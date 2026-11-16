@@ -7,7 +7,7 @@ public final class FlightComputer {
     public static FlightInstruments update(Telemetry telemetry) {
         if (telemetry == null) throw new IllegalArgumentException("telemetry cannot be null");
         double indicatedSpeed = Math.sqrt(Math.max(0.0,
-                2.0 * telemetry.airDensityKgPerM3() / 1.225
+                telemetry.airDensityKgPerM3() / 1.225
                         * telemetry.trueAirspeedMps() * telemetry.trueAirspeedMps()));
         return new FlightInstruments(
                 indicatedSpeed,
