@@ -25,7 +25,7 @@ class ElectricalSystemTest {
     }
 
     @Test void reportsLoadShedWhenBatteryCannotMeetDemand() {
-        var battery = new BatteryModel(100, 0.0, 100, 100);
+        var battery = new BatteryModel(100, 1.0, 100, 100);
         var system = new ElectricalSystem(battery, new GeneratorModel(0 + 1, 500, 2500));
         var snapshot = system.tick(0, false, 250, 1);
         assertEquals(100, snapshot.suppliedLoadWatts(), 1e-9);
