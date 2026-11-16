@@ -1,14 +1,14 @@
 # Create: Flightworks
 
-Minecraft 1.21.1 / NeoForge 21.1.x addon project for aircraft engineering built around Create and compatible physics-based sublevel systems.
+A Minecraft 1.21.1 / NeoForge addon project for aircraft engineering.
 
-## Development baseline
+## Current implementation
 
-- Minecraft: 1.21.1
-- Java: 21
-- NeoForge: 21.1.219
-- Mod ID: `create_flightworks`
-- Main package: `com.flightworks`
+- NeoForge mod entry point and metadata.
+- SI-unit flight force model: dynamic pressure, lift, drag, thrust, weight and net accelerations.
+- Engine output model: throttle, RPM, power, torque, fuel consumption and health scaling.
+- JUnit 5 tests for force scaling, idle engine behavior, throttle response and invalid inputs.
+- GitHub Actions Java 21 build with a JAR and a separate sources JAR.
 
 ## Build
 
@@ -16,11 +16,16 @@ Minecraft 1.21.1 / NeoForge 21.1.x addon project for aircraft engineering built 
 gradle --no-daemon clean build
 ```
 
-GitHub Actions builds pushes and pull requests to `main`, and supports manual runs from the Actions tab. Successful builds publish the mod JAR as a workflow artifact.
+Artifacts are uploaded by GitHub Actions after tests pass.
 
-## Engineering constraints
+## Integration roadmap
 
-- Integrate with the host aircraft/sublevel physics implementation rather than creating a competing flight simulation.
-- Do not teleport aircraft or overwrite their velocity as a flight-control shortcut.
-- Keep client rendering and animation code isolated from dedicated-server initialization.
-- Add optional integrations only after exact target API versions are verified.
+The current physics classes are deterministic calculation components only. They do not move entities or create a second flight simulation. Next steps are verified API adapters for Aeronautics/Sable sublevels, registered engine/propeller blocks and block entities, persistent aircraft configuration, then cockpit instruments and GeckoLib visuals.
+
+## Target
+
+- Minecraft 1.21.1
+- Java 21
+- NeoForge 21.1.x
+- Mod ID: `create_flightworks`
+- Main package: `com.flightworks`
