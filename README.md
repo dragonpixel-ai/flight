@@ -29,3 +29,15 @@ The current physics classes are deterministic calculation components only. They 
 - NeoForge 21.1.x
 - Mod ID: `create_flightworks`
 - Main package: `com.flightworks`
+
+
+## Additional simulation modules
+
+The next implementation layer adds:
+
+- `FlightControls`: validated normalized pilot inputs for elevator, aileron, rudder, throttle and flaps, plus landing-gear state.
+- `AerodynamicModel`: configurable lift curve, lift limit, soft stall loss, induced drag and flap lift/drag.
+- `PropellerModel`: converts shaft power to a bounded static/forward-flight thrust estimate.
+- `FuelTank`: synchronized fuel consumption/refuelling with capacity and empty-tank protection.
+
+JUnit tests cover stall behaviour, flap effects, propeller output and fuel limits. These remain deterministic simulation/domain classes; they are not yet wired to Minecraft blocks, Create kinetic networks, or Sable sublevel force submission.
